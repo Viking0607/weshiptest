@@ -16,9 +16,11 @@ class CreateParcelTable extends Migration
         Schema::create('parcels', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('track', 10)->unique();
+            $table->string('track', 12);
             $table->double('weight');
             $table->string('shop', 512);
+            $table->string('comment', 1024)->nullable();
+            $table->string('img', 512)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','ParcelController@checkProhibited');
+Route::post('check_tracking', 'ParcelController@checkTracking');
 
-Route::get('register_prohibited','ProhibitedItemsController@register');
+Route::get('register_prohibited/{tn}', 'ParcelController@registerProhibited');
+
+Route::post('create_prohibited', 'ParcelController@registerProhibitedForm');

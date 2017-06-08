@@ -12,7 +12,7 @@ class CreateProhibitedItemsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {    
         Schema::create('prohibited_items', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -20,6 +20,7 @@ class CreateProhibitedItemsTable extends Migration
             $table->double('weight');
             $table->string('comment', 2048);
             $table->string('img', 512);
+            $table->string('status', 128);
             $table->timestamps();
             $table->softDeletes();
         });
