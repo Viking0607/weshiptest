@@ -16,7 +16,7 @@
             <label for="tracking">Shipment number</label>
             <input type="text" class="form-control" name="tracking" placeholder="Enter or scan shipment number. example:e12345-6789" />
         </div>
-        <input type="submit" class="btn btn-success" value="Проверить" />
+        <input type="submit" class="btn btn-success" value="Check" />
     </form>
 
     @if(session()->has('message'))

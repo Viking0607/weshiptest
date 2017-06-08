@@ -16,7 +16,7 @@
 </div>
 
 <div class="col-xs-12 col-md-6">
-    <form id="registration_perhibition" action="/create_prohibited" method="post">
+    <form id="registration_perhibition" action="/create_prohibited" method="post"  enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="weight">Weight, lbs</label>
@@ -30,7 +30,7 @@
           <input type="file" id="image" name="image">
         </div>
 
-        <input type="submit" class="btn btn-success registration" value="Зарегестрировать" disabled="disabled"/>
+        <input type="submit" class="btn btn-success registration" value="Register package" disabled="disabled"/>
 
         <div class="prohibition-error prohibition-error-display alert alert-dismissible alert-warning" >
             <span></span>
