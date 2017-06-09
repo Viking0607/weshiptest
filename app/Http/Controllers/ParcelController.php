@@ -107,7 +107,7 @@ class ParcelController extends Controller
 
             $message->from('viking060794@gmail.com', 'WeShip2You - Registration items');
 
-            $message->to($userEmail)->subject('Learning Laravel test email');
+            $message->to($userEmail)->subject('WeShip2You - Registration items');
 
         });
 
