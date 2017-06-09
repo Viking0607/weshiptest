@@ -111,7 +111,6 @@ class ParcelController extends Controller
 
         });
 
-        
         $dateNow = date('dym');
         $ident = rand(1000, 9999);
         $NumParcel = $dateNow.'-'.$ident;
@@ -121,7 +120,7 @@ class ParcelController extends Controller
 
         $pdf = new TCPDF('P', 'mm', 'A6', true, 'UTF-8', false);
 
-        $pdf->setPrintHeader(false); 
+        $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
         $pdf->SetMargins(10, 10, 10);
         $pdf->AddPage();
@@ -131,7 +130,7 @@ class ParcelController extends Controller
         $pdf->Cell(30, 6, 'User id:'.$inputData['user'] , 0, 0, 'C');
 
         $pdf->SetXY(5, 10);
-        $pdf->Cell(30, 6, $userFullName, 0, 0, 'C'); 
+        $pdf->Cell(30, 6, $userFullName, 0, 0, 'C');
 
         $pdf->SetXY(23, 15);
         $pdf->Cell(30, 6, 'Number parcel: p'.$NumParcel, 0, 0, 'C');
@@ -154,17 +153,17 @@ class ParcelController extends Controller
         );
 
         $pdf->SetXY(5, 25);
-        $pdf->write1DBarcode($NumParcel, 'CODE11', '', '', '', 18, 0.5, $style, 'N'); 
+        $pdf->write1DBarcode($NumParcel, 'CODE11', '', '', '', 18, 0.5, $style, 'N');
 
         $pdf->SetXY(23, 45);
         $pdf->Cell(30, 6, 'ID partner: 1', 0, 0, 'C');
-        
+
 
         $nameFile = uniqid();
         $pdf->Output(__DIR__.'/pdf/'.$nameFile.'.pdf', 'F');
         $tmp = ini_get('upload_tmp_dir');
 
-        // Print sticker
+        // Print sticker from created pdf
         $credentials = new Credentials();
         $credentials->setApiKey('b8cd6a89f815f25bbae1c61aa88acf0dc0013e0f');
 
